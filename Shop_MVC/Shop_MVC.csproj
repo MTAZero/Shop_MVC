@@ -211,6 +211,7 @@
     <Content Include="Content\Client\js\jquery.scrollUp.min.js" />
     <Content Include="Content\Client\js\main.js" />
     <Content Include="Content\Client\js\price-range.js" />
+    <Content Include="Content\Client\js_make\DetailProduct.js" />
     <Content Include="Content\Client\js_make\Home.js" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
@@ -219,6 +220,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DetailProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -250,6 +252,8 @@
     <Content Include="Content\Client\fonts\FontAwesome.otf" />
     <Content Include="Content\Client\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\DetailProduct\Index.cshtml" />
+    <Content Include="Views\DetailProduct\er404.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
