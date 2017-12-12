@@ -1,4 +1,5 @@
 ﻿using Shop_MVC.Models.Db;
+using Shop_MVC.Models.Sercurity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,26 @@ namespace Shop_MVC.Models.Service
     public class TaiKhoanService
     {
         private Shop_MVC_Context dataContext = new Shop_MVC_Context();
+
+        public Acount DangNhap(string Email, string MatKhau)
+        {
+            int cnt = dataContext.TAIKHOANs.Where(p => p.EMAIL == Email && p.MATKHAU == MatKhau).ToList().Count;
+
+            if (cnt == 0)
+            {
+                return null;
+            }
+
+            TAIKHOAN tk = dataContext.TAIKHOANs.Where(p => p.EMAIL == Email && p.MATKHAU == MatKhau).FirstOrDefault();
+            Acount ac = new Acount();
+            ac.ID = tk.ID;
+            ac.Name = tk.TEN;
+            ac.Email = tk.EMAIL;
+
+            if (tk.QUYEN == 1) ac.Role = "Admin"; else ac.Role = "User";
+
+            return ac;
+        }
 
         public TAIKHOAN Add(TAIKHOAN entity, ref string err)
         {
