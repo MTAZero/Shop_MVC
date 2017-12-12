@@ -29,10 +29,41 @@ function DangNhap() {
         }
     });
     
-    
-   
 }
 
 function DangKy() {
+    var HoTen = $("#HoTenDK").val();
+    var Email = $("#EmailDK").val();
+    var MatKhau = $("#MatKhauDK").val();
+    var MatKhauXacNhan = $("#XacNhanMatKhauDK").val();
+
+    console.log(MatKhau);
+    console.log(MatKhauXacNhan);
+
+    if (HoTen == "" ||  Email == "" || MatKhau == "" || MatKhauXacNhan == "") {
+        alert("Thông tin nhập chưa đầy đủ");
+        return;
+    }
+
+    if (MatKhau != MatKhauXacNhan) {
+        alert("Mật khẩu xác nhận không chính xác");
+        return;
+    }
+
+    $.ajax({
+        url : "/Login/DangKy",
+        data : {Email: Email, HoTen: HoTen, MatKhau: MatKhau},
+        dataType: "json",
+        type: "POST",
+        success: function (data) {
+            if (data.status == false) {
+                alert(data.Message);
+                return;
+            }
+
+            alert("Đăng ký thành công");
+            window.location.href = "/Home/Index";
+        }
+    });
 
 }

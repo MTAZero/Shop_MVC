@@ -1,4 +1,5 @@
-﻿using Shop_MVC.Models.Sercurity;
+﻿using Shop_MVC.Models.Db;
+using Shop_MVC.Models.Sercurity;
 using Shop_MVC.Models.Service;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,38 @@ namespace Shop_MVC.Controllers
                     new
                     {
                         ok = ok
+                    }
+                );
+        }
+
+        [HttpPost]
+        public JsonResult DangKy(string Email, string MatKhau, string HoTen)
+        {
+            bool ok = true;
+            string message = "";
+
+            ok = new TaiKhoanService().getAll().Where(p => p.EMAIL == Email).ToList().Count == 0;
+            if (!ok) message = "Email đã được sử dung. Vui lòng dùng Email khác";
+
+            if (ok)
+            {
+                TAIKHOAN a = new TAIKHOAN();
+                a.TEN = HoTen;
+                a.EMAIL = Email;
+                a.MATKHAU = MatKhau;
+                a.QUYEN = 0;
+
+                string err = "";
+                new TaiKhoanService().Add(a, ref err);
+                Acount tk = new TaiKhoanService().DangNhap(Email,MatKhau);
+                Session["Login"] = tk;
+            }
+
+            return Json(
+                    new
+                    {
+                        status = ok,
+                        message = message
                     }
                 );
         }

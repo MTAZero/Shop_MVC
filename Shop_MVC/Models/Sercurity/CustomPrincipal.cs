@@ -24,7 +24,7 @@ namespace Shop_MVC.Models.Sercurity
         public bool IsInRole(string role)
         {
             var roles = role.Split(new char[] { ',' });
-            bool kq = roles.Any(r => this.Account.Role == r);
+            bool kq = roles.Any(r => this.Account.Role.ToUpper() == r.Trim().ToUpper());
             return kq;
         }
     }

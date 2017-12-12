@@ -1,4 +1,5 @@
 ﻿using Shop_MVC.Models.Db;
+using Shop_MVC.Models.Sercurity;
 using Shop_MVC.Models.Service;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace Shop_MVC.Controllers
     public class DetailProductController : Controller
     {
         // GET: DetailProduct
+        [CustomAuthorizeAttribute(Roles = "User , Admin")]
         public ActionResult Index(int id)
         {
             string err = "";

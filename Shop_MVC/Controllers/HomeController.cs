@@ -1,4 +1,5 @@
 ﻿using Shop_MVC.Models.Db;
+using Shop_MVC.Models.Sercurity;
 using Shop_MVC.Models.Service;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,11 @@ namespace Shop_MVC.Controllers
     public class HomeController : Controller
     {
         // GET: Home
+        [CustomAuthorizeAttribute(Roles = "User , Admin")]
         public ActionResult Index()
         {
             return View();
         }
-
-
 
         #region Json result
         [HttpPost]
