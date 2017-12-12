@@ -7,22 +7,22 @@ using System.Web;
 
 namespace Shop_MVC.Models.Service
 {
-    public class MatHangService : IService<MATHANG>
+    public class ANHSPService : IService<ANHSP>
     {
         private Shop_MVC_Context dataContext = new Shop_MVC_Context();
 
-        public MATHANG Add(MATHANG entity, ref string err)
+        public ANHSP Add(ANHSP entity, ref string err)
         {
             try
             {
-                dataContext.MATHANGs.Add(entity);
+                dataContext.ANHSPs.Add(entity);
                 dataContext.SaveChanges();
                 return entity;
             }
             catch (Exception ex)
             {
                 err = ex.Message;
-                return new MATHANG();
+                return new ANHSP();
             }
         }
 
@@ -30,8 +30,8 @@ namespace Shop_MVC.Models.Service
         {
             try
             {
-                MATHANG entity = dataContext.MATHANGs.Find(id);
-                dataContext.MATHANGs.Remove(entity);
+                ANHSP entity = dataContext.ANHSPs.Find(id);
+                dataContext.ANHSPs.Remove(entity);
                 dataContext.SaveChanges();
                 return true;
             }
@@ -42,11 +42,11 @@ namespace Shop_MVC.Models.Service
             }
         }
 
-        public bool Delete(MATHANG entity, ref string err)
+        public bool Delete(ANHSP entity, ref string err)
         {
             try
             {
-                dataContext.MATHANGs.Remove(entity);
+                dataContext.ANHSPs.Remove(entity);
                 dataContext.SaveChanges();
                 return true;
             }
@@ -57,9 +57,9 @@ namespace Shop_MVC.Models.Service
             }
         }
 
-        public MATHANG Find(int id, ref string err)
+        public ANHSP Find(int id, ref string err)
         {
-            MATHANG entity = dataContext.MATHANGs.Find(id);
+            ANHSP entity = dataContext.ANHSPs.Find(id);
             if (entity == null)
             {
                 err = "Không tìm thấy";
@@ -69,9 +69,9 @@ namespace Shop_MVC.Models.Service
             return entity;
         }
 
-        public IList<MATHANG> getAll()
+        public IList<ANHSP> getAll()
         {
-            return dataContext.MATHANGs.ToList();
+            return dataContext.ANHSPs.ToList();
         }
 
         public bool Save(ref string err)
@@ -88,20 +88,14 @@ namespace Shop_MVC.Models.Service
             }
         }
 
-        public bool Update(MATHANG entity, ref string err)
+        public bool Update(ANHSP entity, ref string err)
         {
             try
             {
-                MATHANG tgz = dataContext.MATHANGs.Find(entity.ID);
+                ANHSP tgz = dataContext.ANHSPs.Find(entity.ID);
 
-                tgz.TEN = entity.TEN;
-                tgz.MA = entity.MA;
-                tgz.GIA = entity.GIA;
-                tgz.KHUYENMAI = entity.KHUYENMAI;
-                tgz.CHITET = entity.CHITET;
-
-                tgz.NHASANXUATID = entity.NHASANXUATID;
-                tgz.LOAISANPHAMID = entity.LOAISANPHAMID;
+                tgz.SRC = entity.SRC;
+                tgz.MATHANGID = entity.MATHANGID;
             }
             catch
             {

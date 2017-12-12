@@ -211,6 +211,7 @@
     <Content Include="Content\Client\js\jquery.scrollUp.min.js" />
     <Content Include="Content\Client\js\main.js" />
     <Content Include="Content\Client\js\price-range.js" />
+    <Content Include="Content\Client\js_make\Home.js" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
@@ -232,6 +233,7 @@
     <Compile Include="Models\Db\Shop_MVC_Context.cs" />
     <Compile Include="Models\Db\TAIKHOAN.cs" />
     <Compile Include="Models\Interface\IService.cs" />
+    <Compile Include="Models\Service\ANHSPService.cs" />
     <Compile Include="Models\Service\MatHangService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
