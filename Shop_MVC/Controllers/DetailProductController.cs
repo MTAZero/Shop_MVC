@@ -43,7 +43,16 @@ namespace Shop_MVC.Controllers
                                 GIA = z.GIA,
                                 KHUYENMAI = z.KHUYENMAI,
                                 ANH = new ANHSPService().getAll().Where(k => k.MATHANGID == z.ID).FirstOrDefault().SRC
-                            }).ToList()
+                            }).ToList(),
+                        SanPhamKhuyenDung = new MatHangService().getAll().Take(6)
+                            .Select(z => new
+                            {
+                                ID = z.ID,
+                                TEN = z.TEN,
+                                GIA = z.GIA,
+                                KHUYENMAI = z.KHUYENMAI,
+                                ANH = new ANHSPService().getAll().Where(k => k.MATHANGID == z.ID).FirstOrDefault().SRC
+                            }).ToList(),
                     }
                 );
         }

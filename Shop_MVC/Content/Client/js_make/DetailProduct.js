@@ -50,6 +50,38 @@
             });
             $("#splienquan").html(str);
 
+            /// panel sản phẩm khuyên dùng
+            $("#SanPhamKhuyenDung").empty();
+            str = '';
+            listKD = data.SanPhamKhuyenDung;
+
+            for (i = 0; i < data.SanPhamKhuyenDung.length; i += 3) {
+                if (i != 0)
+                    str += '<div class="item"> \n';
+                else
+                    str += '<div class="item active"> \n';
+
+                for (j = i; j <= i + 2; j++) {
+                    str += '<div class="col-sm-4">'; str += '\n';
+                    str += '    <div class="product-image-wrapper">'; str += '\n';
+                    str += '        <div class="single-products">'; str += '\n';
+                    str += '            <div class="productinfo text-center">'; str += '\n';
+                    str += '                <a href = "/DetailProduct/Index/' + listKD[j].ID + '">'; str += '\n';
+                    str += '                    <img src="' + listKD[j].ANH + '" alt="" style="width:150px; height:230px;" />'; str += '\n';
+                    str += '                </a>'; str += '\n';
+                    str += '                <h2>$' + listKD[j].GIA + '</h2>'; str += '\n';
+                    str += '                <p><a href = "/DetailProduct/Index/' + listKD[j].ID + '">' + listKD[j].TEN + '</a></p>'; str += '\n';
+                    str += '                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>'; str += '\n';
+                    str += '            </div>'; str += '\n';
+                    str += '        </div>'; str += '\n';
+                    str += '    </div>'; str += '\n';
+                    str += '</div>'; str += '\n';
+                }
+
+                str += '</div> \n';
+            }
+
+            $("#SanPhamKhuyenDung").html(str);
         }
     });
 }
