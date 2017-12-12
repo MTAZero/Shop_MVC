@@ -32,17 +32,56 @@ namespace Shop_MVC.Controllers
                     {
                         status = "true",
                         ListProduct = ds.ToList()
-                            .Select(p => new {
+                            .Select(p => new
+                            {
                                 ID = p.ID,
                                 TEN = p.TEN,
                                 GIA = p.GIA,
                                 KHUYENMAI = p.KHUYENMAI,
-                                ANH = new ANHSPService().getAll().Where(z=>z.ID == p.ID).FirstOrDefault().SRC
+                                ANH = new ANHSPService().getAll().Where(z => z.ID == p.ID).FirstOrDefault().SRC
                             })
                             .ToList()
                     }
                 );
         }
-        #endregion
-    }
+
+        [HttpPost]
+        public JsonResult DsLoaiSanPham()
+        {
+            List<LOAISANPHAM> ds = new LOAISANPHAMService().getAll().ToList();
+
+            return Json(
+                        new
+                        {
+                            DsLoaiSanPham = ds.ToList()
+                                .Select(p => new
+                                {
+                                    ID = p.ID,
+                                    TEN = p.TEN
+                                }
+                            ).ToList()
+        }
+                    );
+        }
+
+        [HttpPost]
+        public JsonResult DsNhaSanXuat()
+        {
+            List<NHASANXUAT> ds = new NHASANXUATService().getAll().ToList();
+            return 
+                Json(
+                    new {
+                        DsNhaSanXuat = ds.ToList()
+                                       .Select(p =>new
+                                       {
+                                           ID = p.ID,
+                                           TEN = p.TEN,
+                                           SOLUONG = new MatHangService().getAll().Where(z=>z.NHASANXUATID == p.ID).ToList().Count
+                                       })
+                                       .ToList()
+                    }
+                );
+        }
+    #endregion
+}
 }

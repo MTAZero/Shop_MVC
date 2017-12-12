@@ -233,8 +233,10 @@
     <Compile Include="Models\Db\Shop_MVC_Context.cs" />
     <Compile Include="Models\Db\TAIKHOAN.cs" />
     <Compile Include="Models\Interface\IService.cs" />
+    <Compile Include="Models\Service\LOAISANPHAMService.cs" />
     <Compile Include="Models\Service\ANHSPService.cs" />
     <Compile Include="Models\Service\MatHangService.cs" />
+    <Compile Include="Models\Service\NHASANXUATService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
