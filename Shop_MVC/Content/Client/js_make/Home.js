@@ -16,7 +16,9 @@
                 str += '        <div class="product-image-wrapper">'; str += "\n";
                 str += '            <div class="single-products">'; str += "\n";
                 str += '                <div class="productinfo text-center">'; str += "\n";
-                str += '                    <img src="' + item.ANH + '" alt="" + style ="height: 350px;" href= "/DetailProduct/Index/'+ item.ID +'"/>'; str += "\n";
+                str += '                    <a href="/DetailProduct/index/'+ item.ID +'">'; str += '\n';
+                str += '                        <img src="' + item.ANH + '" alt="" style ="height: 370px;" />'; str += "\n";
+                str += '                    </a>'; str += '\n';
                 str += '                    <h2>$' + item.GIA + '</h2>'; str += "\n";
                 str += '                    <p><a href= "/DetailProduct/index/' + item.ID + '"><b>' + item.TEN + '</b></a></p>'; str += "\n";
                 str += '                    <a href="" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>'; str += "\n";

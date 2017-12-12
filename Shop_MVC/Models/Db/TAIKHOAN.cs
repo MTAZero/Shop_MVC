@@ -24,6 +24,8 @@ namespace Shop_MVC.Models.Db
 
         public string TEN { get; set; }
 
+        public int? QUYEN { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DONHANG> DONHANGs { get; set; }
 

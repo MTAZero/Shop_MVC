@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Đăng nhập - Đăng ký";
+    Layout = "~/Views/Layout/Main.cshtml";
+}
+
+<section id="form">
+    <!--form-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="login-form">
+                    <!--login form-->
+                    <h2>Đăng nhập bằng tài khoản</h2>
+                    <form action="#">
+                        <input type="text" placeholder="Email" />
+                        <input type="password" placeholder="Mật khẩu" />
+                        <button type="button" class="btn btn-default" id="btnDangNhap">Đăng nhập</button>
+                    </form>
+                </div><!--/login form-->
+            </div>
+            <div class="col-sm-1">
+                <h2 class="or">Hoặc</h2>
+            </div>
+            <div class="col-sm-4">
+                <div class="signup-form">
+                    <!--sign up form-->
+                    <h2>Đăng ký tài khoản!</h2>
+                    <form action="#">
+                        <input type="text" placeholder="Họ và tên" />
+                        <input type="email" placeholder="Email" />
+                        <input type="password" placeholder="Mật khẩu" />
+                        <input type="password" placeholder="Xác nhận mật khẩu" />
+                        <button type="button" class="btn btn-default" id="btnDangKy">Đăng ký</button>
+                    </form>
+                </div><!--/sign up form-->
+            </div>
+        </div>
+    </div>
+</section><!--/form-->
+
+@section Script{
+    <script src="~/Content/Client/js_make/Login.js"></script>
+}
