@@ -1,7 +1,7 @@
-﻿@using Shop_MVC.Models.Sercurity
-
+﻿
+@using Shop_MVC.Models.Sercurity
 @{
-    ViewBag.Title = "Giỏ hàng";
+    ViewBag.Title = "Thanh toán";
     Layout = "~/Views/Layout/Main.cshtml";
 }
 
@@ -56,11 +56,36 @@
             </div>
         </div><!--/header-middle-->
     }
-
 }
 
 <section id="cart_items">
-    <div class="container">
+    <div class="container">    
+        <div class="shopper-informations">
+            <div class="row">
+                <div class="col-sm-5 clearfix form-one">
+                    <div class="bill-to">
+                        <p>Thông tin thanh toán</p>
+                    </div>
+                    <form>
+                        <input type="text" placeholder="Số điện thoại" id="SDTTT">
+                        <input type="text" placeholder="Địa chỉ" id="DiaChiTT">
+                        <a class="btn btn-primary" href="/Home/Index">Tiếp tục mua hàng</a>
+                        <a class="btn btn-primary" href="" id="btnThanhToan">Thanh toán</a>
+                    </form>
+                    
+                </div>
+                <div class="col-sm-4">
+                    <div class="order-message">
+                        <p>Yêu cầu đơn hàng</p>
+                        <textarea id="YeuCauMuaHangTT" name="message" placeholder="Nhập yêu cầu về đơn hàng (ví dụ: thời gian, địa điểm)" rows="8" style="height: 140px;"></textarea>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="review-payment">
+            <h2>Hóa đơn</h2>
+        </div>
         <div class="table-responsive cart_info">
             <table class="table table-condensed">
                 <thead>
@@ -74,36 +99,15 @@
                     </tr>
                 </thead>
                 <tbody id="GioHang">
-                    @* Sẽ được thêm dữ liệu bằng ajax *@
-
+                    @* Dữ liệu sẽ được thêm bằng ajax *@
                 </tbody>
             </table>
         </div>
     </div>
 </section> <!--/#cart_items-->
-<section id="do_action">
-    <div class="container">
-        <div class="heading">
-            <h3>Thanh toán</h3>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="total_area">
-                    <ul>
-                        <li>Tổng tiền <span id="TongTien">$59</span></li>
-                        <li>VAT <span id="VAT">$5</span></li>
-                        <li>Phí vận chuyển <span id="PhiVanChuyen">Free</span></li>
-                        <li>Thành tiền <span id="ThanhTien">$64</span></li>
-                    </ul>
-                    <a class="btn btn-default update" id="btnCapNhat" href="">Cập nhật</a>
-                    <a class="btn btn-default check_out" id="btnThanhToan" href="/Cart/ThanhToan">Thanh toán</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section><!--/#do_action-->
+
 
 @section Script{
-    <script src="~/Content/Client/js_make/Cart.js"></script>
+    <script src="~/Content/Client/js_make/ThanhToan.js"></script>
 }
 

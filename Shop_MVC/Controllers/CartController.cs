@@ -1,4 +1,5 @@
-﻿using Shop_MVC.Models.Local;
+﻿using Shop_MVC.Models.Db;
+using Shop_MVC.Models.Local;
 using Shop_MVC.Models.Sercurity;
 using Shop_MVC.Models.Service;
 using System;
@@ -18,6 +19,12 @@ namespace Shop_MVC.Controllers
             return View();
         }
 
+        [CustomAuthorizeAttribute(Roles = "User , Admin")]
+        public ActionResult ThanhToan()
+        {
+            return View();
+        }
+
         #region Trả về Json
         [HttpPost]
         public JsonResult DanhSach()
@@ -31,18 +38,18 @@ namespace Shop_MVC.Controllers
                     new
                     {
                         Carts = giohang.ListItem
-                                .Select(p=>new
+                                .Select(p => new
                                 {
                                     ID = new MatHangService().getAll().Where(z => z.ID == p.MATHANGID).FirstOrDefault().ID,
                                     Ma = new MatHangService().getAll().Where(z => z.ID == p.MATHANGID).FirstOrDefault().MA,
-                                    Ten = new MatHangService().getAll().Where(z=>z.ID == p.MATHANGID).FirstOrDefault().TEN,
+                                    Ten = new MatHangService().getAll().Where(z => z.ID == p.MATHANGID).FirstOrDefault().TEN,
                                     Anh = new ANHSPService().getAll().Where(z => z.MATHANGID == p.MATHANGID).FirstOrDefault().SRC,
-                                    Gia = ((double) new MatHangService().getAll().Where(z => z.ID == p.MATHANGID).FirstOrDefault().GIA).ToString("N0"),
+                                    Gia = ((double)new MatHangService().getAll().Where(z => z.ID == p.MATHANGID).FirstOrDefault().GIA).ToString("N0"),
                                     SoLuong = p.SOLUONG,
-                                    ThanhTien = ((double) p.THANHTIEN).ToString("N0")
+                                    ThanhTien = ((double)p.THANHTIEN).ToString("N0")
                                 }).ToList(),
                         TongTien = TongTien.ToString("N0"),
-                        VAT = (TongTien/10).ToString("N0"),
+                        VAT = (TongTien / 10).ToString("N0"),
                         PhiVanChuyen = 0.ToString("N0"),
                         ThanhTien = (TongTien + VAT).ToString("N0")
                     }
@@ -107,6 +114,57 @@ namespace Shop_MVC.Controllers
                         SoLuong = soluong
                     }
                 );
+        }
+
+        [HttpPost]
+        public JsonResult ThanhToan(string SDT, string diachi, string yeucau)
+        {
+            Acount acount = (Acount)Session["Login"];
+            DONHANG a = new DONHANG();
+            a.MA = 0;
+            a.DIACHI = diachi;
+            a.YEUCAUGIAOHANG = yeucau;
+            a.SDT = SDT;
+            a.TAIKHOANID = acount.ID;
+            a.TRANGTHAI = 0; //  Đang giao hàng
+
+            Shop_MVC_Context db = new Shop_MVC_Context();
+            db.DONHANGs.Add(a);
+            try
+            {
+                db.SaveChanges();
+                Cart cart = (Cart)Session["Cart"];
+
+                string err = "";
+                a.TONGTIEN = 0;
+                foreach (CHITIETDONHANG item in cart.ListItem)
+                {
+                    item.DONHANGID = a.ID;
+                    a.TONGTIEN += new MatHangService().Find((int) item.MATHANGID, ref err).GIA * item.SOLUONG;
+                    db.CHITIETDONHANGs.Add(item);
+                }
+
+                a.TONGTIEN += a.TONGTIEN / 10; /// VAT
+                db.SaveChanges();
+
+                
+                cart.ListItem.Clear();
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    ok = false,
+                    exception = ex.Message
+                });
+            }
+                
+            return Json(new
+            {
+                ok = true,
+                exception = ""
+            }
+            );
         }
         #endregion
     }
