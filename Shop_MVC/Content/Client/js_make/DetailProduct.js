@@ -156,13 +156,21 @@ function ThemHang() {
 }
 
 function LoadTrangThaiGioHang() {
-    $("#TrangThaiGioHang").html("Giỏ hàng (5)");
-    console.log($("#TrangThaiGioHang").html());
+    $.ajax({
+        url: "/Cart/SoLuong",
+        data: {},
+        dataType: "json",
+        type: "POST",
+        success: function (data) {
+            $("#TrangThaiGioHang").html("Giỏ hàng (" + data.SoLuong + ")");
+        }
+    });
 }
 
 $(window).ready(function () {
     LoadLoaiSanPham();
     LoadNhaSanXuat();
     LoadChiTietSanPham();
+    LoadTrangThaiGioHang();
     $(".btnAdd").click(ThemHang);
 });

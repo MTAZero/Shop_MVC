@@ -93,6 +93,21 @@ namespace Shop_MVC.Controllers
                     }
                 );
         }
+
+        [HttpPost]
+        public JsonResult SoLuong()
+        {
+            Cart giohang = (Cart)Session["Cart"];
+            int soluong = giohang.ListItem.Sum(p => p.SOLUONG).Value;
+
+            return
+                Json(
+                    new
+                    {
+                        SoLuong = soluong
+                    }
+                );
+        }
         #endregion
     }
 }

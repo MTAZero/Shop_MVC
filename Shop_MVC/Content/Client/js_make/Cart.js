@@ -3,6 +3,18 @@
     $("#btnCapNhat").click(LoadGioHang);
 });
 
+function LoadTrangThaiGioHang() {
+    $.ajax({
+        url: "/Cart/SoLuong",
+        data: {},
+        dataType: "json",
+        type: "POST",
+        success: function (data) {
+            $("#TrangThaiGioHang").html("Giỏ hàng (" + data.SoLuong + ")");
+        }
+    });
+}
+
 function LoadGioHang() {
     $.ajax({
         url: "/Cart/DanhSach",
@@ -52,6 +64,8 @@ function LoadGioHang() {
             $(".btnDelete").click(XoaHang);
         }
     });
+
+    LoadTrangThaiGioHang();
 }
 
 function ThemHang() {

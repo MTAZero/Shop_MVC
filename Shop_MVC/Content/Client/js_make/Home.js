@@ -105,8 +105,21 @@ function LoadNhaSanXuat(e) {
     });
 }
 
+function LoadTrangThaiGioHang() {
+    $.ajax({
+        url: "/Cart/SoLuong",
+        data: {},
+        dataType: "json",
+        type: "POST",
+        success: function (data) {
+            $("#TrangThaiGioHang").html("Giỏ hàng (" + data.SoLuong + ")");
+        }
+    });
+}
+
 $(window).ready(function () {
     LoadLoaiSanPham();
     LoadNhaSanXuat();
     LoadSanPham();
+    LoadTrangThaiGioHang();
 });
