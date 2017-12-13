@@ -1,4 +1,5 @@
 ﻿using Shop_MVC.Models.Db;
+using Shop_MVC.Models.Local;
 using Shop_MVC.Models.Sercurity;
 using Shop_MVC.Models.Service;
 using System;
@@ -14,12 +15,15 @@ namespace Shop_MVC.Controllers
         // GET: Login
         public ActionResult Index()
         {
+
+
             return View("Login");
         }
 
         public ActionResult DangXuat()
         {
             Session["Login"] = null;
+            Session["Cart"] = null;
             return RedirectToAction("Index");
         }
 
@@ -33,7 +37,18 @@ namespace Shop_MVC.Controllers
             if (tk == null)
                 ok = false;
             else
+            {
+                Cart cart = new Cart();
+                cart.ListItem = new List<CHITIETDONHANG>()
+                    {
+                        new CHITIETDONHANG() { MATHANGID= 1, SOLUONG= 1 , THANHTIEN= new MatHangService().getAll().Where(p=>p.ID == 1).FirstOrDefault().GIA * 1 },
+                        new CHITIETDONHANG() { MATHANGID= 2, SOLUONG= 2 , THANHTIEN= new MatHangService().getAll().Where(p=>p.ID == 2).FirstOrDefault().GIA * 2},
+                        new CHITIETDONHANG() { MATHANGID= 3, SOLUONG= 3 , THANHTIEN= new MatHangService().getAll().Where(p=>p.ID == 3).FirstOrDefault().GIA * 3},
+                        new CHITIETDONHANG() { MATHANGID= 4, SOLUONG= 1 , THANHTIEN= new MatHangService().getAll().Where(p=>p.ID == 4).FirstOrDefault().GIA * 1}
+                    };
+                Session["Cart"] = cart;
                 Session["Login"] = tk;
+            }
 
             return Json(
                     new
@@ -62,7 +77,7 @@ namespace Shop_MVC.Controllers
 
                 string err = "";
                 new TaiKhoanService().Add(a, ref err);
-                Acount tk = new TaiKhoanService().DangNhap(Email,MatKhau);
+                Acount tk = new TaiKhoanService().DangNhap(Email, MatKhau);
                 Session["Login"] = tk;
             }
 
@@ -74,6 +89,7 @@ namespace Shop_MVC.Controllers
                     }
                 );
         }
+
         #endregion
     }
 }

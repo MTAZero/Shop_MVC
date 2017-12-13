@@ -42,7 +42,7 @@ namespace Shop_MVC.Controllers
                             {
                                 ID = z.ID,
                                 TEN = z.TEN,
-                                GIA = z.GIA,
+                                GIA = ((double) z.GIA).ToString("N0"),
                                 KHUYENMAI = z.KHUYENMAI,
                                 ANH = new ANHSPService().getAll().Where(k => k.MATHANGID == z.ID).FirstOrDefault().SRC
                             }).ToList(),
@@ -51,7 +51,7 @@ namespace Shop_MVC.Controllers
                             {
                                 ID = z.ID,
                                 TEN = z.TEN,
-                                GIA = z.GIA,
+                                GIA = ((double) z.GIA).ToString("N0"),
                                 KHUYENMAI = z.KHUYENMAI,
                                 ANH = new ANHSPService().getAll().Where(k => k.MATHANGID == z.ID).FirstOrDefault().SRC
                             }).ToList(),

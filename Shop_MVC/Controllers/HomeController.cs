@@ -36,7 +36,7 @@ namespace Shop_MVC.Controllers
                             {
                                 ID = p.ID,
                                 TEN = p.TEN,
-                                GIA = p.GIA,
+                                GIA = ((double)p.GIA).ToString("N0"),
                                 KHUYENMAI = p.KHUYENMAI,
                                 ANH = new ANHSPService().getAll().Where(z => z.ID == p.ID).FirstOrDefault().SRC
                             })

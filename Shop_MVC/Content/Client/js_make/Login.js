@@ -56,8 +56,9 @@ function DangKy() {
         dataType: "json",
         type: "POST",
         success: function (data) {
+            console.log(data);  
             if (data.status == false) {
-                alert(data.Message);
+                alert(data.message);
                 return;
             }
 

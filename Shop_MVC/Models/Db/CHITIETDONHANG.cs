@@ -17,7 +17,7 @@ namespace Shop_MVC.Models.Db
 
         public int? SOLUONG { get; set; }
 
-        public int? THANHTIEN { get; set; }
+        public double? THANHTIEN { get; set; }
 
         public virtual DONHANG DONHANG { get; set; }
 

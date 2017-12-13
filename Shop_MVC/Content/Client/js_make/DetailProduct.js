@@ -40,7 +40,7 @@
                 str += '        <div class="single-products">'; str += '\n';
                 str += '            <div class="productinfo text-center">'; str += '\n';
                 str += '                <a href = "/DetailProduct/Index/' + item.ID + '" ><img src="' + item.ANH + '" alt="" style="width: 150px; height: 230px"/> </a>'; str += '\n';
-                str += '                <h2>$' + item.GIA + '</h2>'; str += '\n';
+                str += '                <h2>' + item.GIA + ' vnd</h2>'; str += '\n';
                 str += '                <p><a href = "/DetailProduct/Index/' + item.ID + '">' + item.TEN + '</a></p>'; str += '\n';
                 str += '                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>'; str += '\n';
                 str += '            </div>'; str += '\n';
@@ -69,7 +69,7 @@
                     str += '                <a href = "/DetailProduct/Index/' + listKD[j].ID + '">'; str += '\n';
                     str += '                    <img src="' + listKD[j].ANH + '" alt="" style="width:150px; height:230px;" />'; str += '\n';
                     str += '                </a>'; str += '\n';
-                    str += '                <h2>$' + listKD[j].GIA + '</h2>'; str += '\n';
+                    str += '                <h2>' + listKD[j].GIA + ' vnd</h2>'; str += '\n';
                     str += '                <p><a href = "/DetailProduct/Index/' + listKD[j].ID + '">' + listKD[j].TEN + '</a></p>'; str += '\n';
                     str += '                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>'; str += '\n';
                     str += '            </div>'; str += '\n';
@@ -138,8 +138,31 @@ function LoadNhaSanXuat(e) {
     });
 }
 
+function ThemHang() {
+    var id = $(this).data("id");
+    console.log(id);
+
+    $.ajax({
+        url: "/Cart/ThemHang",
+        data: { id: id },
+        dataType: "json",
+        type: "POST",
+        success: function (data) {
+        }
+    });
+
+    //LoadGioHang();
+    LoadTrangThaiGioHang();
+}
+
+function LoadTrangThaiGioHang() {
+    $("#TrangThaiGioHang").html("Giỏ hàng (5)");
+    console.log($("#TrangThaiGioHang").html());
+}
+
 $(window).ready(function () {
     LoadLoaiSanPham();
     LoadNhaSanXuat();
     LoadChiTietSanPham();
+    $(".btnAdd").click(ThemHang);
 });

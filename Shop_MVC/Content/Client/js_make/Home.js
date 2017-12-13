@@ -1,4 +1,23 @@
-﻿function LoadSanPham(e) {
+﻿function ThemHang() {
+    var id = $(this).data("id");
+    console.log(id);
+
+    $.ajax({
+        url: "/Cart/ThemHang",
+        data: { id: id },
+        dataType: "json",
+        type: "POST",
+        success: function (data) {
+            if (data.status == "ok") {
+            }
+        }
+    });
+
+    //LoadGioHang();
+}
+
+
+function LoadSanPham(e) {
 
     $.ajax({
         url: "/Home/ListProduct",
@@ -16,22 +35,20 @@
                 str += '        <div class="product-image-wrapper">'; str += "\n";
                 str += '            <div class="single-products">'; str += "\n";
                 str += '                <div class="productinfo text-center">'; str += "\n";
-                str += '                    <a href="/DetailProduct/index/'+ item.ID +'">'; str += '\n';
+                str += '                    <a href="/DetailProduct/index/' + item.ID + '">'; str += '\n';
                 str += '                        <img src="' + item.ANH + '" alt="" style ="height: 370px;" />'; str += "\n";
                 str += '                    </a>'; str += '\n';
-                str += '                    <h2>$' + item.GIA + '</h2>'; str += "\n";
+                str += '                    <h2>' + item.GIA + 'vnd</h2>'; str += "\n";
                 str += '                    <p><a href= "/DetailProduct/index/' + item.ID + '"><b>' + item.TEN + '</b></a></p>'; str += "\n";
-                str += '                    <a href="" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>'; str += "\n";
+                str += '                    <a href="" class="btn btn-default add-to-cart btnAdd" data-id = ' + item.ID + '><i class="fa fa-shopping-cart"></i>Add to cart</a>'; str += "\n";
                 str += '                </div>'; str += "\n";
                 str += '            </div>'; str += "\n";
                 str += '        </div>';
                 str += '</div>';
             });
 
-            
-
             $("#ListProduct").html(str);
-
+            $(".btnAdd").click(ThemHang);
         }
     });
 }

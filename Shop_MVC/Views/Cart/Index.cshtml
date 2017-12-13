@@ -1,0 +1,109 @@
+﻿@using Shop_MVC.Models.Sercurity
+
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Layout/Main.cshtml";
+}
+
+@section LoginStatus{
+    @if (@Session["Login"] != null)
+    {
+        <div class="header-middle">
+            <!--header-middle-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="logo pull-left">
+                            <a href="index.html"><img src="~/Content/Client/images/home/logo.png" alt="" /></a>
+                        </div>
+                        <div class="btn-group pull-right">
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="shop-menu pull-right">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#"><i class="fa fa-user"></i> @(((Acount)Session["Login"]).Name)</a></li>
+                                <li><a href="/Login/DangXuat" id="btnDangXuat"><i class="fa fa-lock"></i> Đăng xuất</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/header-middle-->
+    }
+    else
+    {
+        <div class="header-middle">
+            <!--header-middle-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="logo pull-left">
+                            <a href="index.html"><img src="~/Content/Client/images/home/logo.png" alt="" /></a>
+                        </div>
+                        <div class="btn-group pull-right">
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="shop-menu pull-right">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#"><i class="fa fa-user"></i></a></li>
+                                <li><a href="/Login/Index"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/header-middle-->
+    }
+
+}
+
+<section id="cart_items">
+    <div class="container">
+        <div class="table-responsive cart_info">
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Sản phẩm</td>
+                        <td class="description"></td>
+                        <td class="price">Đơn giá</td>
+                        <td class="quantity">Số lượng</td>
+                        <td class="total">Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody id="GioHang">
+                    @* Sẽ được thêm dữ liệu bằng ajax *@
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section> <!--/#cart_items-->
+<section id="do_action">
+    <div class="container">
+        <div class="heading">
+            <h3>Thanh toán</h3>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="total_area">
+                    <ul>
+                        <li>Tổng tiền <span id="TongTien">$59</span></li>
+                        <li>VAT <span id="VAT">$5</span></li>
+                        <li>Phí vận chuyển <span id="PhiVanChuyen">Free</span></li>
+                        <li>Thành tiền <span id="ThanhTien">$64</span></li>
+                    </ul>
+                    <a class="btn btn-default update" id="btnCapNhat" href="">Cập nhật</a>
+                    <a class="btn btn-default check_out" id="btnThanhToan" href="">Thanh toán</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/#do_action-->
+
+@section Script{
+    <script src="~/Content/Client/js_make/Cart.js"></script>
+}
+
