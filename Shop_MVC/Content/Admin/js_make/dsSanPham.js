@@ -19,7 +19,7 @@ function LoadSanPham() {
                 str += '    <td>' + item.LOAISANPHAM + '</td>'; str += '\n';
                 str += '    <td>' + item.NHASANXUAT + '</td>'; str += '\n';
                 str += '    <th><img src="' + item.ANH + '" style="width: 100px; height: 150px;" /></th>'; str += '\n';
-                str += '    <td><a href="\#" class="btn btn-primary">Sửa</a></td>'; str += '\n';
+                str += '    <td><a href="/Admin/dsSanPham/SuaSanPham/' + item.ID + '" class="btn btn-primary">Sửa</a></td>'; str += '\n';
                 str += '    <td><a href="\#" class="btn btn-danger btnXoa" data-id = ' + item.ID + '>Xóa</a></td>'; str += '\n';
                 str += '<\tr>\n';
             });
@@ -53,5 +53,5 @@ function XoaSanPham() {
         }
     });
 
-    
+
 }
