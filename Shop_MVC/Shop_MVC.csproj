@@ -128,6 +128,49 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\database.txt" />
+    <Content Include="Content\Admin\css\bootstrap.css" />
+    <Content Include="Content\Admin\css\bootstrap.min.css" />
+    <Content Include="Content\Admin\css\custom.css" />
+    <Content Include="Content\Admin\css\font-awesome.css" />
+    <Content Include="Content\Admin\css\font-awesome.min.css" />
+    <Content Include="Content\Admin\css\icons.css" />
+    <Content Include="Content\Admin\js\Chart.min.js" />
+    <Content Include="Content\Admin\js\FontAweSome.js" />
+    <Content Include="Content\Admin\css\owl.video.play.png" />
+    <Content Include="Content\Admin\css\style.blue.css" />
+    <Content Include="Content\Admin\css\style.default.css" />
+    <Content Include="Content\Admin\css\style.green.css" />
+    <Content Include="Content\Admin\css\style.pink.css" />
+    <Content Include="Content\Admin\css\style.red.css" />
+    <Content Include="Content\Admin\css\style.sea.css" />
+    <Content Include="Content\Admin\css\style.violet.css" />
+    <Content Include="Content\Admin\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Admin\icons-reference\fonts\dashboard.svg" />
+    <Content Include="Content\Admin\icons-reference\icons-reference.html" />
+    <Content Include="Content\Admin\icons-reference\styles.css" />
+    <Content Include="Content\Admin\img\avatar-1.jpg" />
+    <Content Include="Content\Admin\img\avatar-2.jpg" />
+    <Content Include="Content\Admin\img\avatar-3.jpg" />
+    <Content Include="Content\Admin\img\avatar-4.jpg" />
+    <Content Include="Content\Admin\img\avatar-5.jpg" />
+    <Content Include="Content\Admin\img\avatar-6.jpg" />
+    <Content Include="Content\Admin\img\bg.jpg" />
+    <Content Include="Content\Admin\img\favicon.ico" />
+    <Content Include="Content\Admin\img\project-1.jpg" />
+    <Content Include="Content\Admin\img\project-2.jpg" />
+    <Content Include="Content\Admin\img\project-3.jpg" />
+    <Content Include="Content\Admin\img\project-4.jpg" />
+    <Content Include="Content\Admin\img\template-mac.png" />
+    <Content Include="Content\Admin\js\bootstrap.js" />
+    <Content Include="Content\Admin\js\bootstrap.min.js" />
+    <Content Include="Content\Admin\js\charts-custom.js" />
+    <Content Include="Content\Admin\js\charts-home.js" />
+    <Content Include="Content\Admin\js\front.js" />
+    <Content Include="Content\Admin\js\jquery.cookie.js" />
+    <Content Include="Content\Admin\js\jquery.min.js" />
+    <Content Include="Content\Admin\js\jquery.validate.min.js" />
+    <Content Include="Content\Admin\js\tether.min.js" />
+    <Content Include="Content\Admin\js_make\dsSanPham.js" />
     <Content Include="Content\Client\css\animate.css" />
     <Content Include="Content\Client\css\bootstrap.min.css" />
     <Content Include="Content\Client\css\font-awesome.min.css" />
@@ -223,6 +266,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\adLoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\dsNguoiDungController.cs" />
+    <Compile Include="Areas\Admin\Controllers\dsSanPhamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManagerController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\DetailProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -267,6 +315,21 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\ThanhToan.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Main\Main_Layout.cshtml" />
+    <Content Include="Content\Admin\css\bootstrap.css.map" />
+    <Content Include="Content\Admin\css\bootstrap.min.css.map" />
+    <Content Include="Content\Admin\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Admin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Admin\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Admin\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Admin\fonts\FontAwesome.otf" />
+    <Content Include="Content\Admin\icons-reference\fonts\dashboard.eot" />
+    <Content Include="Content\Admin\icons-reference\fonts\dashboard.ttf" />
+    <Content Include="Content\Admin\icons-reference\fonts\dashboard.woff" />
+    <Content Include="Areas\Admin\Views\Manager\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\dsNguoiDung\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\dsSanPham\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -274,7 +337,11 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\adLogin\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

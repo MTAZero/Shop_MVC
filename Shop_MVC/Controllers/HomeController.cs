@@ -38,7 +38,9 @@ namespace Shop_MVC.Controllers
                                 TEN = p.TEN,
                                 GIA = ((double)p.GIA).ToString("N0"),
                                 KHUYENMAI = p.KHUYENMAI,
-                                ANH = new ANHSPService().getAll().Where(z => z.ID == p.ID).FirstOrDefault().SRC
+                                ANH = new ANHSPService().getAll().Where(z => z.MATHANGID == p.ID).FirstOrDefault().SRC,
+                                NHASANXUAT = new NHASANXUATService().getAll().Where(z=>z.ID == p.NHASANXUATID).FirstOrDefault().TEN,
+                                LOAISANPHAM = new LOAISANPHAMService().getAll().Where(z=>z.ID == p.LOAISANPHAMID).FirstOrDefault().TEN
                             })
                             .ToList()
                     }

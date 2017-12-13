@@ -30,7 +30,9 @@ namespace Shop_MVC.Models.Service
         {
             try
             {
+                ANHSP anh = dataContext.ANHSPs.Where(p => p.MATHANGID == id).FirstOrDefault();
                 MATHANG entity = dataContext.MATHANGs.Find(id);
+                dataContext.ANHSPs.Remove(anh);
                 dataContext.MATHANGs.Remove(entity);
                 dataContext.SaveChanges();
                 return true;

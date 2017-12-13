@@ -1,0 +1,80 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bootstrap Dashboard by Bootstrapious.com</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="~/Content/Admin/css/bootstrap.min.css">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="~/Content/Admin/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="~/Content/Admin/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="~/Content/Admin/img/favicon.ico">
+    <!-- Font Awesome CDN-->
+    <!-- you can replace it by local Font Awesome-->
+    <script src="~/Content/Admin/js/FontAweSome.js"></script>
+    <!-- Font Icons CSS-->
+    <link href="~/Content/Admin/css/icons.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <div class="page home-page">
+        
+        <div class="page-content d-flex align-items-stretch">
+            <!-- Side Navbar -->
+            <nav class="side-navbar">
+                <!-- Sidebar Header-->
+                <div class="sidebar-header d-flex align-items-center">
+                    
+                    <div class="title">
+                        <h1 class="h4">Bùi Xuân Thủy</h1>
+                        <p>Quản trị viên</p>
+                    </div>
+                </div>
+                <!-- Sidebar Navidation Menus-->
+                <hr/>
+                <ul class="list-unstyled">
+                    <li> <a href="/Admin/dsSanPham"> <i class="icon-grid"></i>Sản phẩm </a></li>
+                    <li> <a href="/Admin/dsNguoiDung"> <i class="fa fa-bar-chart"></i>Người dùng </a></li>
+                    <li> <a href="/Admin/Manager"> <i class="icon-padnote"></i>Đơn hàng</a></li>
+                    <li> <a href="login.html"> <i class="icon-interface-windows"></i>Đăng xuất</a></li>
+                </ul>
+            </nav>
+
+            @RenderBody()
+        </div>
+    </div>
+    <!-- Javascript files-->
+    <script src="~/Content/Admin/js/jquery.min.js"></script>
+    <script src="~/Content/Admin/js/tether.min.js"></script>
+    <script src="~/Content/Admin/js/bootstrap.min.js"></script>
+    <script src="~/Content/Admin/js/jquery.cookie.js"> </script>
+    <script src="~/Content/Admin/js/jquery.validate.min.js"></script>
+    <script src="~/Content/Admin/js/front.js"></script>
+
+    @RenderSection("Script", false);
+    
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
+    <!---->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+</body>
+</html>

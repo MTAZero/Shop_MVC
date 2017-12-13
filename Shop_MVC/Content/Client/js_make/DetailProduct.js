@@ -103,7 +103,7 @@ function LoadLoaiSanPham(e) {
                 str += '<div class="panel panel-default"> '; str += '\n';
                 str += '    <div class="panel-heading">'; str += '\n';
                 str += '        <h4 class="panel-title">'; str += '\n';
-                str += '            <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">'; str += '\n';
+                str += '            <a data-toggle="collapse" data-parent="#accordian" href="\#">'; str += '\n';
                 str += '                ' + item.TEN; str += '\n';
                 str += '            </a>'; str += '\n';
                 str += '        </h4>'; str += '\n';
@@ -129,7 +129,7 @@ function LoadNhaSanXuat(e) {
             var str = '';
             data.DsNhaSanXuat.forEach(function (item, index) {
 
-                str += '<li><a href="#"> <span class="pull-right">(' + item.SOLUONG + ')</span><b>' + item.TEN + '</b></a></li> ';
+                str += '<li><a href="\#"> <span class="pull-right">(' + item.SOLUONG + ')</span><b>' + item.TEN + '</b></a></li> ';
                 str += '\n';
             });
             $("#dsNhaSanXuat").html(str);
