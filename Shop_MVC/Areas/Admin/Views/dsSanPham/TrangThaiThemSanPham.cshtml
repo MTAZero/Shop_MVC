@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Thông báo";
+    Layout = "~/Areas/Admin/Views/Main/Main_Layout.cshtml";
+}
+
+
+<div class="container" style="margin: 15px; min-height: 1000px;">
+    <div class="alert alert-warning">
+        @ViewBag.ThongBao
+    </div>
+    <button type="button" class="btn btn-primary" id="btnThemSanPham">
+        <a style="color:white" href="/Admin/dsSanPham/Index">Danh sách sản phẩm</a>
+    </button>
+</div>
+

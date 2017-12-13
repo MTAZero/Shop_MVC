@@ -39,13 +39,7 @@ namespace Shop_MVC.Controllers
             else
             {
                 Cart cart = new Cart();
-                cart.ListItem = new List<CHITIETDONHANG>()
-                    {
-                        new CHITIETDONHANG() { MATHANGID= 1, SOLUONG= 1 , THANHTIEN= new MatHangService().getAll().Where(p=>p.ID == 1).FirstOrDefault().GIA * 1 },
-                        new CHITIETDONHANG() { MATHANGID= 2, SOLUONG= 2 , THANHTIEN= new MatHangService().getAll().Where(p=>p.ID == 2).FirstOrDefault().GIA * 2},
-                        new CHITIETDONHANG() { MATHANGID= 3, SOLUONG= 3 , THANHTIEN= new MatHangService().getAll().Where(p=>p.ID == 3).FirstOrDefault().GIA * 3},
-                        new CHITIETDONHANG() { MATHANGID= 4, SOLUONG= 1 , THANHTIEN= new MatHangService().getAll().Where(p=>p.ID == 4).FirstOrDefault().GIA * 1}
-                    };
+                cart.ListItem = new List<CHITIETDONHANG>();
                 Session["Cart"] = cart;
                 Session["Login"] = tk;
             }

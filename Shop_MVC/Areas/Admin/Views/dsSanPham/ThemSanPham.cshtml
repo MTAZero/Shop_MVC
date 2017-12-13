@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Thêm sản phẩm";
+    Layout = "~/Areas/Admin/Views/Main/Main_Layout.cshtml";
+}
+
+<div class="container" style="margin: 15px; min-height: 1500px;">
+    <!-- Page Header-->
+    <h2>Thêm sản phẩm</h2>
+    <hr />
+
+    <form action="/Admin/dsSanPham/ThemSanPham" method="post" class="col-md-8" style="padding-left: 100px;" id="formMain" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Tên sản phẩm:</label>
+            <input type="text" class="form-control" id="TenSanPham" placeholder="Nhập tên sản phẩm" name="TenSanPham">
+        </div>
+
+        <div class="form-group">
+            <label>Mã sản phẩm:</label>
+            <input type="text" class="form-control" id="MaSanPham" placeholder="Nhập mã sản phẩm" name="MaSanPham">
+        </div>
+
+        <div class="form-group">
+            <label>Giá sản phẩm :</label>
+            <input type="Text" class="form-control" id="GiaSanPham" placeholder="Nhập giá sản phẩm" name="GiaSanPham">
+        </div>
+
+        <div class="form-group">
+            <label>Nhà sản xuất :</label>
+            <select class="form-control" id="cbxNhaSanXuat" name="NhaSanXuatID">
+                @* Được thêm bằng ajax *@
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Loại sản phẩm :</label>
+            <select class="form-control" id="cbxLoaiSanPham" name="LoaiSanPhamID">
+                @* được thêm bằng ajax *@
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Chi tiết sản phẩm :</label>
+            <textarea type="text" class="form-control" id="ChiTietSanPham" placeholder="Chi tiết sản phẩm" name="ChiTietSanPham" ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Ảnh :</label>
+            <input type="file" class="form-control" id="Anh" name="Anh">
+        </div>
+
+
+        <button type="button" class="btn btn-primary" id="btnThemSanPham">Thêm sản phẩm</button>
+        <button type="button" class="btn btn-danger"><a href="/Admin/dsSanPham/Index" style="color: white">Hủy</a></button>
+
+    </form>
+</div>
+
+@section Script{
+    <script src="~/Content/Admin/js_make/ThemSanPham.js"></script>
+}

@@ -171,6 +171,7 @@
     <Content Include="Content\Admin\js\jquery.validate.min.js" />
     <Content Include="Content\Admin\js\tether.min.js" />
     <Content Include="Content\Admin\js_make\dsSanPham.js" />
+    <Content Include="Content\Admin\js_make\ThemSanPham.js" />
     <Content Include="Content\Client\css\animate.css" />
     <Content Include="Content\Client\css\bootstrap.min.css" />
     <Content Include="Content\Client\css\font-awesome.min.css" />
@@ -330,6 +331,8 @@
     <Content Include="Areas\Admin\Views\Manager\Index.cshtml" />
     <Content Include="Areas\Admin\Views\dsNguoiDung\Index.cshtml" />
     <Content Include="Areas\Admin\Views\dsSanPham\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\dsSanPham\ThemSanPham.cshtml" />
+    <Content Include="Areas\Admin\Views\dsSanPham\TrangThaiThemSanPham.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
