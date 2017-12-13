@@ -25,6 +25,12 @@
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                                 <li><a href="#"><i class="fa fa-user"></i> @(((Acount)Session["Login"]).Name)</a></li>
+                                @{
+                                    if ((((Acount)Session["Login"]).Role == "Admin"))
+                                    {
+                                        <li><a href="/Admin/dsSanPham/Index"><i class="fa fa-lock"></i> Quản trị</a></li>
+                                    }
+                                }
                                 <li><a href="/Login/DangXuat" id="btnDangXuat"><i class="fa fa-lock"></i> Đăng xuất</a></li>
                             </ul>
                         </div>
@@ -146,7 +152,7 @@
                         <ul class="nav nav-tabs">
                             <li><a href="#thongtinsp" data-toggle="tab">Chi tiết</a></li>
                             <li><a href="#splienquan" data-toggle="tab">Sản phẩm liên quan</a></li>
-                            <li class="active"><a href="#reviews" data-toggle="tab">Phản hồi (2)</a></li>
+                            @*<li class="active"><a href="#reviews" data-toggle="tab">Phản hồi (2)</a></li>*@
                         </ul>
                     </div>
                     <div class="tab-content">
@@ -161,7 +167,7 @@
                             @* Sản phẩm liên quan sẽ được thêm bằng ajax *@
                         </div>
 
-                        <div class="tab-pane fade active in" id="reviews">
+                        @*<div class="tab-pane fade active in" id="reviews">
                             <div class="col-sm-12">
                                 <ul>
                                     <li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
@@ -182,7 +188,7 @@
                                         Submit
                                     </button>
                                 </form>
-                            </div>
+                            </div>*@
                         </div>
 
                     </div>

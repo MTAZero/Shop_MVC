@@ -21,7 +21,7 @@ function DangNhap() {
 
             if (ok == true) {
                 alert("Đăng nhập thành công");
-                window.location.href = "/Home/Index";
+                $("#FormDangNhap").submit();
             }
             else {
                 alert("Đăng nhập thất bại");
@@ -63,7 +63,7 @@ function DangKy() {
             }
 
             alert("Đăng ký thành công");
-            window.location.href = "/Home/Index";
+            $("#FormDangKy").submit();
         }
     });
 

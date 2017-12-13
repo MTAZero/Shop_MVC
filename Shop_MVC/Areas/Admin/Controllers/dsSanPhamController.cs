@@ -1,4 +1,5 @@
 ﻿using Shop_MVC.Models.Db;
+using Shop_MVC.Models.Sercurity;
 using Shop_MVC.Models.Service;
 using System;
 using System.Collections.Generic;
@@ -12,16 +13,19 @@ namespace Shop_MVC.Areas.Admin.Controllers
     public class dsSanPhamController : Controller
     {
         // GET: Admin/dsSanPham
+        [CustomAdminAuthorizeAttribute(Roles = "Admin")]
         public ActionResult Index()
         {
             return View();
         }
 
+        [CustomAdminAuthorizeAttribute(Roles = "Admin")]
         public ActionResult ThemSanPham()
         {
             return View();
         }
 
+        [CustomAdminAuthorizeAttribute(Roles = "Admin")]
         public ActionResult SuaSanPham(int id)
         {
             MATHANG mh = new MatHangService().getAll().Where(p => p.ID == id).FirstOrDefault();
@@ -31,6 +35,7 @@ namespace Shop_MVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [CustomAdminAuthorizeAttribute(Roles = "Admin")]
         public ActionResult ThemSanPham(string TenSanPham, string MaSanPham, int NhaSanXuatID, int LoaiSanPhamID, double GiaSanPham, string ChiTietSanPham, HttpPostedFileBase Anh)
         {
             ViewBag.ThongBao = "Thành công";
@@ -78,6 +83,7 @@ namespace Shop_MVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [CustomAdminAuthorizeAttribute(Roles = "Admin")]
         public ActionResult SuaSanPham(int id, string TenSanPham, string MaSanPham, int NhaSanXuatID, int LoaiSanPhamID, double GiaSanPham, string ChiTietSanPham, HttpPostedFileBase Anh)
         {
             ViewBag.ThongBao = "Sửa thông tin sản phẩm Thành công";
@@ -124,6 +130,7 @@ namespace Shop_MVC.Areas.Admin.Controllers
 
         #region Json action
         [HttpPost]
+        [CustomAdminAuthorizeAttribute(Roles = "Admin")]
         public JsonResult XoaSanPham(int id)
         {
             string err = "";

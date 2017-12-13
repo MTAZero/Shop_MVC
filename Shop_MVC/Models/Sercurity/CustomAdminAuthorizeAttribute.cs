@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Shop_MVC.Models.Sercurity
 {
-    public class CustomAuthorizeAttribute : AuthorizeAttribute
+    public class CustomAdminAuthorizeAttribute : AuthorizeAttribute
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
@@ -17,7 +17,7 @@ namespace Shop_MVC.Models.Sercurity
                          new System.Web.Routing.RouteValueDictionary(
                           new
                           {
-                              Controller = "Login",
+                              Controller = "adLogin",
                               Action = "Index",
                               ReturnUrl = filterContext.HttpContext.Request.RawUrl
                           }));
@@ -32,7 +32,7 @@ namespace Shop_MVC.Models.Sercurity
                     new System.Web.Routing.RouteValueDictionary(
                         new
                         {
-                            Controller = "Login",
+                            Controller = "adLogin",
                             Action = "Index",
                             ReturnUrl = filterContext.HttpContext.Request.RawUrl
                         }));
@@ -44,7 +44,7 @@ namespace Shop_MVC.Models.Sercurity
                 {
                     filterContext.Result = new RedirectToRouteResult(
                         new System.Web.Routing.RouteValueDictionary(
-                            new { Controller = "Login", Action = "Index" }));
+                            new { Controller = "adLogin", Action = "Index" }));
                 }
             }
         }

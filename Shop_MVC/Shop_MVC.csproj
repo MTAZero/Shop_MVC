@@ -292,6 +292,7 @@
     <Compile Include="Models\Interface\IService.cs" />
     <Compile Include="Models\Local\Cart.cs" />
     <Compile Include="Models\Sercurity\Acount.cs" />
+    <Compile Include="Models\Sercurity\CustomAdminAuthorizeAttribute.cs" />
     <Compile Include="Models\Sercurity\CustomAuthorizeAttribute.cs" />
     <Compile Include="Models\Sercurity\CustomPrincipal.cs" />
     <Compile Include="Models\Service\LOAISANPHAMService.cs" />
@@ -336,6 +337,7 @@
     <Content Include="Areas\Admin\Views\dsSanPham\TrangThaiThemSanPham.cshtml" />
     <Content Include="Areas\Admin\Views\dsSanPham\er404.cshtml" />
     <Content Include="Areas\Admin\Views\dsSanPham\SuaSanPham.cshtml" />
+    <Content Include="Areas\Admin\Views\adLogin\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -345,7 +347,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\adLogin\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <PropertyGroup>

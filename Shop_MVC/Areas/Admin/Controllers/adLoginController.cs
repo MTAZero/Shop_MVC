@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shop_MVC.Models.Sercurity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,7 @@ namespace Shop_MVC.Areas.Admin.Controllers
         // GET: Admin/adLogin
         public ActionResult Index()
         {
-            return View();
+            return View("Login");
         }
     }
 }

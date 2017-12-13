@@ -23,6 +23,12 @@
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                                 <li><a href="#"><i class="fa fa-user"></i> @(((Acount)Session["Login"]).Name)</a></li>
+                                @{
+                                    if ((((Acount)Session["Login"]).Role == "Admin"))
+                                    {
+                                        <li><a href="/Admin/dsSanPham/Index"><i class="fa fa-lock"></i> Quản trị</a></li>
+                                    }
+                                }
                                 <li><a href="/Login/DangXuat" id="btnDangXuat"><i class="fa fa-lock"></i> Đăng xuất</a></li>
                             </ul>
                         </div>
@@ -194,12 +200,12 @@
 
                 </div><!--features_items-->
 
-                <ul class="pagination">
+                @*<ul class="pagination">
                     <li class="active"><a href="">1</a></li>
                     <li><a href="">2</a></li>
                     <li><a href="">3</a></li>
                     <li><a href="">&raquo;</a></li>
-                </ul>
+                </ul>*@
             </div>
         </div>
     </div>
